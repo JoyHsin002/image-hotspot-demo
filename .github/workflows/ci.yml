@@ -6,7 +6,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -22,3 +22,6 @@ jobs:
           cache: maven
       - name: Verify
         run: ./mvnw -B verify
+      - name: Remove temporary branch
+        if: github.ref == 'refs/heads/main'
+        run: git push origin --delete bootstrap-test-temp || true
