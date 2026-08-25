@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="图片商品点位效果预览">
+    <title>效果预览 · Hotspot Studio</title>
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body class="viewer-page">
+<header class="site-header">
+    <a class="brand" href="/"><span class="brand-mark">H</span><span>Hotspot Studio</span></a>
+    <nav class="main-nav"><a href="/">首页</a><a href="/editor.html">配置后台</a><a class="active" href="/viewer.html">效果预览</a></nav>
+</header>
+
+<main class="viewer-main">
+    <section class="viewer-topbar shell-wide">
+        <div><p class="eyebrow">用户展示端</p><h1 id="viewerTitle">交互场景预览</h1><p id="viewerSubtitle">点击图片中的点位查看商品详情。</p></div>
+        <div class="viewer-controls">
+            <label for="viewerSceneSelect">场景</label><select id="viewerSceneSelect"><option value="">请选择场景</option></select>
+            <label for="viewerModeSelect">数据版本</label><select id="viewerModeSelect"><option value="published">已发布</option><option value="draft">草稿预览</option></select>
+            <a id="editSceneLink" class="button secondary" href="/editor.html">编辑当前场景</a>
+        </div>
+    </section>
+
+    <section id="viewerStageSection" hidden>
+        <div class="viewer-stage-shell"><div id="viewerCanvas" class="viewer-canvas"><img id="viewerImage" alt="场景图片" draggable="false"><div id="viewerMarkerLayer" class="viewer-marker-layer"></div></div></div>
+        <div class="viewer-legend shell-wide"><span><i></i> 点击彩色标记查看商品详情</span><span id="viewerVersion">—</span><span id="viewerPointCount">0 个点位</span></div>
+    </section>
+
+    <section id="viewerEmpty" class="viewer-empty shell"><span class="empty-icon">◇</span><h2>还没有可以展示的内容</h2><p id="viewerEmptyText">前往配置后台创建场景并发布点位。</p><a class="button primary" href="/editor.html">前往配置后台</a></section>
+</main>
+
+<dialog id="productDialog" class="product-dialog">
+    <button id="dialogCloseButton" class="dialog-close" type="button" aria-label="关闭">×</button>
+    <div class="dialog-media"><img id="dialogProductImage" alt=""><div id="dialogImageFallback" class="dialog-image-fallback">PRODUCT</div></div>
+    <div class="dialog-content"><span id="dialogMarkerLabel" class="dialog-label"></span><small id="dialogProductCode" class="dialog-code"></small><h2 id="dialogProductName"></h2><p id="dialogProductPrice" class="dialog-price"></p><p id="dialogProductDescription" class="dialog-description"></p><a id="dialogDetailLink" class="button primary full" href="#" target="_blank" rel="noopener noreferrer">查看商品详情</a></div>
+</dialog>
+
+<div id="toastRegion" class="toast-region" aria-live="polite"></div>
+<script type="module" src="/assets/viewer.js"></script>
+</body>
+</html>

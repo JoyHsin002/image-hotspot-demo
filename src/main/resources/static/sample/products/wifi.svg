@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Wi-Fi 6 企业级接入点</title><desc id="desc">企业无线接入点示意图</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecfeff"/><stop offset="1" stop-color="#eff6ff"/></linearGradient></defs>
+  <rect width="800" height="520" rx="42" fill="url(#bg)"/><circle cx="400" cy="260" r="148" fill="#fff" stroke="#b7d9ef" stroke-width="8"/><circle cx="400" cy="260" r="104" fill="#f7fbff" stroke="#d8e8f3" stroke-width="5"/><circle cx="400" cy="260" r="23" fill="#2563eb"/><circle cx="454" cy="304" r="8" fill="#22c55e"/>
+  <path d="M315 231c47-48 123-48 170 0" fill="none" stroke="#2f7df6" stroke-linecap="round" stroke-width="24"/><path d="M350 273c27-27 73-27 100 0" fill="none" stroke="#65a4ff" stroke-linecap="round" stroke-width="21"/><path d="M400 106V60M294 144l-33-33M506 144l33-33M252 260h-47M548 260h47" stroke="#9bc5ec" stroke-linecap="round" stroke-width="11"/><rect x="272" y="430" width="256" height="26" rx="13" fill="#d8e8f3"/>
+</svg>
