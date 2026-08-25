@@ -148,15 +148,23 @@ public class SceneService {
     }
 
     public List<Product> searchProducts(String rawQuery) {
-        String query = rawQuery == null ? "" : rawQuery.strip().toLowerCase(Locale.ROOT);
+        String query = normalizeSearch(rawQuery);
         if (query.isEmpty()) {
             return CATALOG;
         }
         return CATALOG.stream()
-                .filter(product -> (product.code() + " " + product.name() + " " + product.description())
-                        .toLowerCase(Locale.ROOT)
-                        .contains(query))
+                .filter(product -> normalizeSearch(
+                        product.code() + " " + product.name() + " " + product.description()
+                ).contains(query))
                 .toList();
+    }
+
+    private static String normalizeSearch(String value) {
+        if (value == null) {
+            return "";
+        }
+        return value.toLowerCase(Locale.ROOT)
+                .replaceAll("[^\\p{L}\\p{N}]+", "");
     }
 
     private List<HotspotDraft> sampleHotspots() {
