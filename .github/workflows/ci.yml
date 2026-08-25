@@ -13,24 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Detect one-time bootstrap bundle
-        id: bootstrap
-        shell: bash
-        run: |
-          if compgen -G ".bootstrap/frontend.tar.gz.b64.*" > /dev/null; then
-            echo "present=true" >> "$GITHUB_OUTPUT"
-            echo "Frontend bootstrap bundle is present; the bootstrap workflow will run verification."
-          else
-            echo "present=false" >> "$GITHUB_OUTPUT"
-          fi
+        uses: actions/checkout@v5
       - name: Set up Java 17
-        if: steps.bootstrap.outputs.present != 'true'
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
           cache: maven
       - name: Verify
-        if: steps.bootstrap.outputs.present != 'true'
         run: ./mvnw -B verify
