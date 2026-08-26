@@ -1,0 +1,8 @@
+services:
+  hotspot:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      HOTSPOT_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data

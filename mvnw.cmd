@@ -1,22 +1,9 @@
 @echo off
-setlocal
-set "BASE_DIR=%~dp0"
-set "WRAPPER_DIR=%BASE_DIR%.mvn\wrapper"
-set "WRAPPER_JAR=%WRAPPER_DIR%\maven-wrapper.jar"
-set "WRAPPER_URL=https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.3.2/maven-wrapper-3.3.2.jar"
-
-if not exist "%WRAPPER_JAR%" (
-  if not exist "%WRAPPER_DIR%" mkdir "%WRAPPER_DIR%"
-  echo Downloading Maven Wrapper...
-  powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -UseBasicParsing '%WRAPPER_URL%' -OutFile '%WRAPPER_JAR%'"
+where mvn >nul 2>nul && (mvn %* & exit /b %errorlevel%)
+set WRAPPER_VERSION=3.9.11
+set MAVEN_HOME=%TEMP%\image-hotspot-maven-%WRAPPER_VERSION%
+if not exist "%MAVEN_HOME%\bin\mvn.cmd" (
+  powershell -NoProfile -Command "$ErrorActionPreference='Stop'; $zip='%TEMP%\apache-maven-%WRAPPER_VERSION%-bin.zip'; Invoke-WebRequest 'https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/%WRAPPER_VERSION%/apache-maven-%WRAPPER_VERSION%-bin.zip' -OutFile $zip; Expand-Archive -Force $zip '%TEMP%'; Move-Item -Force '%TEMP%\apache-maven-%WRAPPER_VERSION%' '%MAVEN_HOME%'"
   if errorlevel 1 exit /b 1
 )
-
-if defined JAVA_HOME (
-  set "JAVA_CMD=%JAVA_HOME%\bin\java.exe"
-) else (
-  set "JAVA_CMD=java"
-)
-
-"%JAVA_CMD%" -Dmaven.multiModuleProjectDirectory="%BASE_DIR%" -classpath "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %*
-endlocal
+call "%MAVEN_HOME%\bin\mvn.cmd" %*
