@@ -228,6 +228,16 @@ marker.style.top = `${hotspot.yRatio * 100}%`;
 
 因此同一组点位可以适配不同分辨率和屏幕宽度。
 
+## 生产化设计
+
+当前版本以本地 JSON 和图片目录保证零外部依赖；面向 Spring Cloud 的生产方案见 [生产化设计文档](docs/production-design.md)。
+
+- 场景、草稿热点、发布快照、审计日志拆表保存到 MySQL；发布版本不可变。
+- 图片存 OSS/MinIO；热点只关联 productId，商品从商品中心读取并保留发布时兜底快照。
+- 草稿保存通过 draftVersion 乐观锁防止多人编辑时静默覆盖。
+- Viewer 只读已发布聚合 DTO，以 xRatio/yRatio × 100% 的绝对定位响应式渲染。
+- Gateway 负责租户和权限上下文；发布后失效 Redis 并保留审计记录。
+
 ## 运行测试
 
 ```bash
