@@ -7,4 +7,4 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 hotspot:
-  data-dir: ${HOTSPOT_DATA_DIR:data}
+  data-directory: ${HOTSPOT_DATA_DIR:data}
