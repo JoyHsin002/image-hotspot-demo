@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240"><rect width="400" height="240" rx="24" fill="#dbeafe"/><rect x="95" y="35" width="210" height="130" rx="12" fill="#2563eb"/><rect x="115" y="55" width="170" height="90" fill="white"/><path d="M160 165h80l35 40H125z" fill="#1e40af"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">双屏智能 POS</title><desc id="desc">蓝紫色双屏收银终端示意图</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef4ff"/><stop offset="1" stop-color="#f7f0ff"/></linearGradient><linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+  <rect width="800" height="520" rx="42" fill="url(#bg)"/><circle cx="650" cy="96" r="62" fill="#d8e6ff"/><circle cx="122" cy="414" r="84" fill="#eadcff"/>
+  <rect x="154" y="104" width="338" height="230" rx="24" fill="#253654"/><rect x="176" y="126" width="294" height="186" rx="13" fill="url(#screen)"/>
+  <rect x="510" y="146" width="150" height="188" rx="20" fill="#2f405f"/><rect x="528" y="166" width="114" height="138" rx="10" fill="#84b4ff"/>
+  <path d="M286 334h74l20 58H266z" fill="#334b71"/><rect x="218" y="388" width="210" height="31" rx="15" fill="#263a5d"/><rect x="468" y="370" width="214" height="52" rx="18" fill="#fff" stroke="#ced9eb" stroke-width="5"/><circle cx="518" cy="396" r="13" fill="#22c55e"/><rect x="550" y="385" width="102" height="22" rx="11" fill="#d7e1ef"/>
+</svg>

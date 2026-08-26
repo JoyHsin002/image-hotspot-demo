@@ -9,3 +9,4 @@
 .DS_Store
 Thumbs.db
 *.log
+.mvn/wrapper/maven-wrapper.jar
